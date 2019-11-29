@@ -68,7 +68,7 @@ func NewCustomNow(timeout time.Duration, now func() time.Time) Timeout {
 }
 
 // TimeLeft gets the time remaining in this Timeout.
-func (timeout Timeout) TimeLeft() {
+func (timeout Timeout) TimeLeft() time.Duration {
 	now := timeout.now()
 	elapsed := now.Sub(timeout.start)
 	remaining := timeout.total - elapsed
